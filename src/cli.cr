@@ -1,0 +1,3 @@
+require "./rewards"
+
+Rewards.claim!

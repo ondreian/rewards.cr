@@ -1,22 +1,14 @@
-# login
+# Rewards
 
-TODO: Write a description here
+logs all characters in on an account and claims their rewards
 
 ## Installation
 
-TODO: Write installation instructions here
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
+download the latest release binary
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/login/fork>)
+1. Fork it (<https://github.com/ondreian/login/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -24,4 +16,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [Benjamin Clos](https://github.com/your-github-user) - creator and maintainer
+- [Benjamin Clos](https://github.com/ondreian) - creator and maintainer

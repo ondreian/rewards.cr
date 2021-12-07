@@ -1,0 +1,13 @@
+name: login
+version: 0.1.0
+
+authors:
+  - Benjamin Clos <benjamin.clos@gmail.com>
+
+targets:
+  rewards:
+    main: src/cli.cr
+
+crystal: 1.2.2
+
+license: MIT
