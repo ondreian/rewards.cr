@@ -10,9 +10,9 @@ module Rewards
     ENV["GS_PASSWORD"]
   end
 
-  def self.claim!
-    EAccess.fetch_characters(account: self.account, password: self.password).each {|character|
-      _0, _1, otp = EAccess.auth(account: self.account, password: self.password, character: character)
+  def self.claim!(account = self.account, password = self.password)
+    EAccess.fetch_characters(account: account, password: password).each {|character|
+      _0, _1, otp = EAccess.auth(account: account, password: password, character: character)
       self.login(character, otp)
     }
   end
