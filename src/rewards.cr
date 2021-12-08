@@ -1,7 +1,7 @@
 require "./eaccess"
 
 module Rewards
-  VERSION = "0.1.0"
+  VERSION = "0.2.0"
   def self.account()
     ENV["GS_ACCOUNT"]
   end
