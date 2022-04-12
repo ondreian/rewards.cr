@@ -27,6 +27,9 @@ module EAccess
   class PasswordErr < Exception
   end
 
+  class SubscriptionErr < Exception
+  end
+
   def self.proto_err(message)
     raise ProtocolErr.new(message)
   end
@@ -92,8 +95,10 @@ module EAccess
     sock.write hash.to_slice
     sock << "\n"
     resp = sock.gets
+    puts "resp=%s" % resp
     raise ProtocolErr.new("no password resp") if resp.nil?
-    raise PasswordErr.new if resp.ends_with?("PASSWORD")
+    raise PasswordErr.new("account: %s appears to have a different password" % account) if resp.ends_with?("PASSWORD")
+    raise SubscriptionErr.new("account: %s does not appear to have a valid subscription" % account) if resp.ends_with?("REJECT")
     key, owner = resp.split("\t").skip(3)
     return key
   end

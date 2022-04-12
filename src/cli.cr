@@ -8,6 +8,6 @@ accounts.each do |info|
   begin
     Task.retry(3) { Rewards.claim!(account, password) }
   rescue error
-    puts "account=%s\nerror=%s\ntrace=%s" % [account, error.message, error.backtrace]
+    puts "account=%s\nerror=%s\ntrace=\n%s" % [account, error.message, error.backtrace.join("\n")]
   end
 end

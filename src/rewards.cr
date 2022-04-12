@@ -19,6 +19,7 @@ module Rewards
 
   def self.login(character, otp)
     game = otp.use()
+    game.read_timeout = 3
     server = TCPServer.new("localhost", 0)
     while from_game = game.gets
       break if game.closed?
