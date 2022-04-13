@@ -12,8 +12,14 @@ module Rewards
 
   def self.claim!(account = self.account, password = self.password)
     EAccess.fetch_characters(account: account, password: password).each {|character|
-      _0, _1, otp = EAccess.auth(account: account, password: password, character: character)
-      self.login(character, otp)
+      begin
+        Task.retry(3) {
+          _0, _1, otp = EAccess.auth(account: account, password: password, character: character)
+          self.login(character, otp)
+        }
+      rescue error
+        puts "account=%s\nerror=%s\ntrace=\n%s" % [account, error.message, error.backtrace.join("\n")]
+      end
     }
   end
 
